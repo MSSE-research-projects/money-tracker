@@ -22,6 +22,22 @@ class App extends React.Component {
   componentDidMount() {
     window.addEventListener('resize', throttle(this.props.windowResize, 500));
     this.props.bootstrap();
+    const script = document.createElement('script');
+    script.src =
+      'https://usability-session.onrender.com/static/plugin/instrumentation.js';
+
+    script.addEventListener('load', () => {
+      localStorage.setItem('scenarioId', '6455873c93620f7be7a1cd4b');
+
+      setTimeout(() => {
+        window.instrumentation.start({
+          serverUrl: 'usability-session.onrender.com',
+          scenarioId: '6455873c93620f7be7a1cd4b'
+        });
+      }, 3000);
+    });
+
+    document.head.appendChild(script);
   }
 
   render() {
@@ -78,12 +94,12 @@ class App extends React.Component {
           isOpen={!isMobile || isSidebarOpen}
           toggleSidebar={toggleSidebar}
         />
-        {flatten(routes).map(route => (
+        {flatten(routes).map((route) => (
           <Route
             key={route.path}
             path={route.path}
             exact={route.exact}
-            render={props => (
+            render={(props) => (
               <React.Fragment>
                 <Header label={route.label} />
                 <div className="container">
@@ -110,7 +126,7 @@ function onTestMenuClick() {
 }
 function flatten(routes) {
   let flatRoutes = [];
-  routes.forEach(route => {
+  routes.forEach((route) => {
     if (route.routes) {
       flatRoutes.push({ ...route, exact: true });
       flatRoutes.push(...flatten(route.routes));
@@ -143,11 +159,8 @@ const mapStateToProps = (state, ownProps) => ({
   isSidebarOpen: state.ui.isSidebarOpen
 });
 
-export default connect(
-  mapStateToProps,
-  {
-    bootstrap,
-    windowResize,
-    toggleSidebar
-  }
-)(App);
+export default connect(mapStateToProps, {
+  bootstrap,
+  windowResize,
+  toggleSidebar
+})(App);

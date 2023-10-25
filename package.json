@@ -58,7 +58,7 @@
   },
   "scripts": {
     "pretty": "prettier --write 'src/**/*.js'",
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
