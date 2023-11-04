@@ -41,6 +41,7 @@
     "save-file": "^2.3.1",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.1",
+    "serve": "^14.2.1",
     "stats-lite": "^2.2.0",
     "survey-core": "^1.9.115",
     "survey-react": "^1.9.1",
