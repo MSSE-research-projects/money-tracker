@@ -55,7 +55,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <ParticipantSurvey isVisible="true" />
         <Router history={this.props.history}>
           <Switch>
             <Route path="/auth" exact={true} component={SignIn} />
@@ -66,8 +65,6 @@ class App extends React.Component {
             )}
           </Switch>
         </Router>
-        <TaskHelpFooter />
-        <TestMenu onClick={onTestMenuClick} />
       </div>
     );
   }
@@ -94,12 +91,12 @@ class App extends React.Component {
           isOpen={!isMobile || isSidebarOpen}
           toggleSidebar={toggleSidebar}
         />
-        {flatten(routes).map((route) => (
+        {flatten(routes).map(route => (
           <Route
             key={route.path}
             path={route.path}
             exact={route.exact}
-            render={(props) => (
+            render={props => (
               <React.Fragment>
                 <Header label={route.label} />
                 <div className="container">
@@ -126,7 +123,7 @@ function onTestMenuClick() {
 }
 function flatten(routes) {
   let flatRoutes = [];
-  routes.forEach((route) => {
+  routes.forEach(route => {
     if (route.routes) {
       flatRoutes.push({ ...route, exact: true });
       flatRoutes.push(...flatten(route.routes));
@@ -159,8 +156,11 @@ const mapStateToProps = (state, ownProps) => ({
   isSidebarOpen: state.ui.isSidebarOpen
 });
 
-export default connect(mapStateToProps, {
-  bootstrap,
-  windowResize,
-  toggleSidebar
-})(App);
+export default connect(
+  mapStateToProps,
+  {
+    bootstrap,
+    windowResize,
+    toggleSidebar
+  }
+)(App);
