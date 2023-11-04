@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Divider, Header, Modal } from 'semantic-ui-react';
+import { Button, Divider, Header } from 'semantic-ui-react';
 import CurrencyInput from '../Settings/Currency/Input';
 import CurrencyExchangeRate from '../Settings/Currency/ExchangeRate';
 import AccountForm from '../Accounts/Form';
