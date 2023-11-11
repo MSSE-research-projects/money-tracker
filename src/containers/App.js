@@ -27,12 +27,12 @@ class App extends React.Component {
       'https://usability-session-vfqp.onrender.com/static/plugin/instrumentation.js';
 
     script.addEventListener('load', () => {
-      localStorage.setItem('scenarioId', '654ebc4332fb98f9b81cc252');
+      localStorage.setItem('scenarioId', '654f143632fb98f9b81ccb9e');
 
       setTimeout(() => {
         window.instrumentation.start({
           serverUrl: 'usability-session-vfqp.onrender.com',
-          scenarioId: '654ebc4332fb98f9b81cc252'
+          scenarioId: '654f143632fb98f9b81ccb9e'
         });
       }, 3000);
     });
