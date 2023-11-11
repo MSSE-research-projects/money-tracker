@@ -24,15 +24,15 @@ class App extends React.Component {
     this.props.bootstrap();
     const script = document.createElement('script');
     script.src =
-      'https://usability-session.onrender.com/static/plugin/instrumentation.js';
+      'https://usability-session-vfqp.onrender.com/static/plugin/instrumentation.js';
 
     script.addEventListener('load', () => {
-      localStorage.setItem('scenarioId', '6455873c93620f7be7a1cd4b');
+      localStorage.setItem('scenarioId', '654be8a1464dea7945472dac');
 
       setTimeout(() => {
         window.instrumentation.start({
-          serverUrl: 'usability-session.onrender.com',
-          scenarioId: '6455873c93620f7be7a1cd4b'
+          serverUrl: 'usability-session-vfqp.onrender.com',
+          scenarioId: '654be8a1464dea7945472dac'
         });
       }, 3000);
     });
